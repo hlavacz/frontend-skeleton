@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import Login from "./modules/Login/Login";
+import Api from "./libs/Api/Api";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const api = new Api();
+
+    if (api.user.logged) {
+        return (
+            <div className="App">
+                <BrowserRouter>
+                    <Routes>
+                        <Route path={'*'} element={<div>logged</div>} />
+                    </Routes>
+                </BrowserRouter>
+            </div>
+        );
+    } else {
+        return (
+            <div className="App">
+                <BrowserRouter>
+                    <Routes>
+                        <Route path={'*'} element={<Login api={api}/>} />
+                    </Routes>
+                </BrowserRouter>
+            </div>
+        )
+    }
+
 }
 
 export default App;

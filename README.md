@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Frontend skeleton
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+It is basic React skeleton for backend API skeleton
 
 ## Available Scripts
 
