@@ -25,13 +25,12 @@ export default class Api {
         }
     }
 
+
     login(user) {
         this.user = user;
         return this.interface.post('acl/login', {user}).then(res=>this.controlResponse(res)).then(
-            res => {
-                let data = res.data;
-                if (data.loginStatus === 'success') {
-                    this.updateUser(data.user);
+            data => {
+                if (data.status === 'ok') {
                     this.user.logged = true;
                     this.user.save();
                     window.location = '/';

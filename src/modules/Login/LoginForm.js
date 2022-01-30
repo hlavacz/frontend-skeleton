@@ -39,8 +39,11 @@ export default class LoginForm extends Component {
         user.username = this.state.username;
         user.password = this.state.password;
         this.props.api.login(user).then(res=>{
-            if (res === false) {
+            console.log(res);
+            if (res.status === 'ok') {
                 this.setState({status: 'not-valid'})
+            } else {
+                this.setState({status: 'invalid'})
             }
         })
     }

@@ -5,7 +5,6 @@ export default class User {
     save() {
         this.password = '****'
         sessionStorage.username = this.username;
-        sessionStorage.language = this.language;
     }
 
     load() {
