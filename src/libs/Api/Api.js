@@ -2,7 +2,7 @@ import axios from "axios";
 import User from "../User/User";
 import ApiException from "./ApiException";
 
-const API_URL = 'https://boulevard.torlin.cz:8080';
+const API_URL = 'https://rekuperace.popovicky.headsoft.cz:8080';
 
 export default class Api {
 

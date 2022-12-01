@@ -1,6 +1,7 @@
 export default class User {
     username = '';
     password = '';
+    logged = false;
 
     save() {
         this.password = '****'
@@ -10,6 +11,7 @@ export default class User {
     load() {
         if (sessionStorage.username) {
             this.username = sessionStorage.username;
+            this.logged = true;
         }
     }
 
